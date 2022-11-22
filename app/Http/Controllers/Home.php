@@ -10,10 +10,7 @@ class Home extends Controller
 {
     public function index(){
 
-        $limit = 3;
-        $startDate = Carbon::createFromFormat('M d, Y', 'Sep 28, 2015');
-        $endDate = Carbon::createFromFormat('M d, Y', 'Sep 28, 2020');
-
+        $limit = 5;
         $games = DB::collection('gamesinfo')->where('release_date.coming_soon', '=', false)->orderByDesc('release_date.date')
             ->paginate($limit);
 
@@ -26,8 +23,8 @@ class Home extends Controller
 
     public function genre($id){
 
-        $limit = 3;
-        $games = DB::collection('gamesinfo')->where('data.genres.description', '=', $id)
+        $limit = 5;
+        $games = DB::collection('gamesinfo')->where('genres.description', '=', $id)
             ->paginate($limit);
 
         $data = [

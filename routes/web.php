@@ -18,7 +18,7 @@ use App\Http\Controllers\Home;
 
  
 Route::get('/', [Home::class, 'index']);
-Route::get('/genre/{id}', [Home::class, 'genre']);
+Route::get('/genres/{id}', [Home::class, 'genre']);
 Route::get('/search/{id}', [Home::class, 'search']);
 Route::get('/categories/{id}', [Home::class, 'categories']);
 Route::get('/developers/{id}', [Home::class, 'developers']);
