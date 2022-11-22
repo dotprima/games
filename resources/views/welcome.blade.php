@@ -15,7 +15,7 @@
  <!-- End Banner Area -->
 
  <!-- Start Post List Wrapper  -->
- @include('template.postlist')
+ <livewire:post-list />
  <!-- End Post List Wrapper  -->
  
  <!-- Start Tab Area  -->

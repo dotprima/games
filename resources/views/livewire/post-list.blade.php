@@ -66,29 +66,7 @@
                     </div>
                     <!-- End Post List  -->
                 @endforeach
-                <nav aria-label="Page navigation example">
-                    @if ($games->lastPage() > 1)
-                        <ul class="pagination justify-content-center">
-                            <li class="{{ $games->currentPage() == 1 ? 'page-item disabled' : '' }}">
-                                <a class="page-link" href="{{ $games->url(1) }}#listpost">Previous</a>
-                            </li>
-                            @for ($i = $games->currentPage(); $i <= $games->currentPage() + 5; $i++)
-                                <li class="<li class="{{ $games->currentPage() == 1 ? 'page-item disabled' : '' }}">
-                                    <a class="page-link" href="{{ $games->url($i) }}#listpost">{{ $i }}</a>
-                                </li>
-                            @endfor
-                            <li class="{{ $games->currentPage() == 1 ? 'page-item disabled' : '' }}">
-                                <a class="page-link"
-                                    href="{{ $games->url($games->lastPage() - 1) }}#listpost">{{ $games->lastPage() - 1 }}</a>
-                            </li>
-                            <li class="{{ $games->currentPage() == $games->lastPage() ? 'page-item disabled' : '' }}">
-                                <a class="page-link" href="{{ $games->url($games->currentPage() + 1) }}#listpost">Next</a>
-                            </li>
-                        </ul>
-                    @endif
-                   
-                </nav>
-
+                {{ $games->links() }}
             </div>
             <div class="col-lg-4 col-xl-4 mt_md--40 mt_sm--40">
                 <!-- Start Sidebar Area  -->

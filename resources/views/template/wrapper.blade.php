@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="<?=ENV('APP_URL')?>assets/images/favicon.png">
-
+    @livewireStyles
     <!-- CSS
     ============================================ -->
 
@@ -71,7 +71,7 @@
 
     <!-- Main JS -->
     <script src="<?=ENV('APP_URL')?>assets/js/main.js"></script>
-
+    @livewireScripts
 </body>
 
 
