@@ -13,11 +13,11 @@ class Home extends Controller
         $limit = 5;
         $games = DB::collection('gamesinfo')->where('release_date.coming_soon', '=', false)->orderByDesc('release_date.date')
             ->paginate($limit);
-
+        $banner = Gamesinfo::orderBy("RAND()")->limit(5)->get();
         $data = [
-            'games' => $games
+            'games' => $games,
+            'banner' => $banner
         ];
-        
         return view('welcome',$data);
     }
 
@@ -36,8 +36,8 @@ class Home extends Controller
 
     public function categories($id){
 
-        $limit = 3;
-        $games = DB::collection('gamesinfo')->where('data.categories.description', '=', $id)
+        $limit = 5;
+        $games = DB::collection('gamesinfo')->where('categories.description', '=', $id)
             ->paginate($limit);
 
         $data = [
@@ -49,8 +49,8 @@ class Home extends Controller
 
     public function developers($id){
 
-        $limit = 3;
-        $games = DB::collection('gamesinfo')->where('data.developers', '=', $id)
+        $limit = 5;
+        $games = DB::collection('gamesinfo')->where('developers', '=', $id)
             ->paginate($limit);
 
         $data = [
@@ -62,8 +62,8 @@ class Home extends Controller
 
     public function publishers($id){
 
-        $limit = 3;
-        $games = DB::collection('gamesinfo')->where('data.publishers', '=', $id)
+        $limit = 5;
+        $games = DB::collection('gamesinfo')->where('publishers', '=', $id)
             ->paginate($limit);
 
         $data = [
@@ -75,8 +75,8 @@ class Home extends Controller
 
     public function search($id){
 
-        $limit = 3;
-        $games = DB::collection('gamesinfo')->where('data.name', 'like', '%'.$id.'%')
+        $limit = 5;
+        $games = DB::collection('gamesinfo')->where('name', 'like', '%'.$id.'%')
             ->paginate($limit);
 
         $data = [
@@ -88,8 +88,8 @@ class Home extends Controller
 
     public function populer(){
 
-        $limit = 3;
-        $games = DB::collection('gamesinfo')->where('data.metacritic.score', '>', '50')
+        $limit = 5;
+        $games = DB::collection('gamesinfo')->where('metacritic.score', '>', '20')
             ->paginate($limit);
 
         $data = [

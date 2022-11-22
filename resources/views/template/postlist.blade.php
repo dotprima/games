@@ -34,7 +34,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <h4 class="title"><a href="post-details.html">{{ $item['name'] }}</a></h4>
+                            <h4 class="title"><a href="<?=ENV('APP_URL')?>gameinfo/{{ $item['steam_appid'] }}">{{ $item['name'] }}</a></h4>
                             <div class="post-meta-wrapper">
                                 <div class="post-meta">
                                     <div class="post-author-avatar border-rounded">

@@ -7,5 +7,5 @@ use Jenssegers\Mongodb\Eloquent\Model;
 
 class Gamesinfo extends Model
 {
-    use HasFactory;
+    protected $collection = 'gamesinfo';
 }

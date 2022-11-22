@@ -14,7 +14,10 @@
  @include('template.startbanner')
  <!-- End Banner Area -->
 
-
+ <!-- Start Post List Wrapper  -->
+ @include('template.postlist')
+ <!-- End Post List Wrapper  -->
+ 
  <!-- Start Tab Area  -->
  @include('template.starttab')
  <!-- End Tab Area  -->
@@ -32,9 +35,7 @@
  @include('template.categorylist')
  <!-- Start Categories List  -->
 
- <!-- Start Post List Wrapper  -->
- @include('template.postlist')
- <!-- End Post List Wrapper  -->
+
 
  <!-- Start Instagram Area  -->
  @include('template.instagram')
