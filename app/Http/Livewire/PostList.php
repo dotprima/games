@@ -8,13 +8,33 @@ use Livewire\WithPagination;
 class PostList extends Component
 {
     use WithPagination;
-  
+
+    public $foo;
+    public $search = '';
+    public $page = 1;
+ 
+    protected $queryString = [
+        'foo',
+        'search' => ['except' => ''],
+        'page' => ['except' => 1],
+    ];
+
     public function render()
     {
         $limit = 5;
-        $games = DB::collection('gamesinfo')->where('release_date.coming_soon', '=', false)->orderByDesc('release_date.date')
+        $banner = Gamesinfo::select('steam_appid','name', 'genres','header_image')->orderBy("RAND()")->limit(5)->get();
+        if(!$this->search==null){
+            $games = DB::collection('gamesinfo')->select('steam_appid','name', 'genres','header_image')
+            ->where('release_date.coming_soon', '=', false)->where('name', 'like', '%'.$this->search.'%')
+            ->orderByDesc('release_date.date')
             ->paginate($limit);
-        $banner = Gamesinfo::orderBy("RAND()")->limit(5)->get();
+        }else{
+            $games = DB::collection('gamesinfo')->select('steam_appid','name', 'genres','header_image')
+            ->where('release_date.coming_soon', '=', false)
+            ->orderByDesc('release_date.date')
+            ->paginate($limit);
+        }
+        
         $data = [
             'games' => $games,
             'banner' => $banner

@@ -1,18 +1,7 @@
 @extends('template.wrapper')
 
 @section('content')
- <!-- Start Header -->
- @include('template.startheader')
- <!-- Start Header -->
-
- <!-- Start Mobile Menu Area  -->
- @include('template.startmobile')
- <!-- End Mobile Menu Area  -->
-
- <!-- Start Banner Area -->
- <h1 class="d-none">Home Life Style Blog</h1>
- @include('template.startbanner')
- <!-- End Banner Area -->
+ 
 
  <!-- Start Post List Wrapper  -->
  <livewire:post-list />

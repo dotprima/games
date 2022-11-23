@@ -10,18 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class Home extends Controller
 {
+    
+
     public function index()
     {
-
-        $limit = 5;
-        $games = DB::collection('gamesinfo')->where('release_date.coming_soon', '=', false)->orderByDesc('release_date.date')
-            ->paginate($limit);
-        $banner = Gamesinfo::orderBy("RAND()")->limit(5)->get();
-        $data = [
-            'games' => $games,
-            'banner' => $banner
-        ];
-        return view('welcome', $data);
+        return view('welcome');
     }
 
     public function genre($id)
